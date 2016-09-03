@@ -69,17 +69,17 @@ for($tt=1;$tt<count($response);$tt++){
 	}
 	if($down!=0){
 	    $gpa=number_format($up/$down,3,'.','');
-	    $obj->clist=$clist;
+	    $obj->clist= $clist;
+		$clist=null;
 	    $obj->sum=$sum;
 	    $obj->down=$down;
 	    $obj->gpa=$gpa;
-	    $final[]=$obj;
+	    $final[count($final)]=clone $obj;
 	}
 
 
 
 }
-
 
 return $final;
 }
