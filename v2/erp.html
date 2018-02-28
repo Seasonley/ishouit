@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ERP</title>
-    <link rel="stylesheet" href="style/weui.min.css" />
+    <link rel="stylesheet" href="../old/style/weui.min.css" />
+    <link rel="stylesheet" href="../old/style/example.css" />
     <link rel="stylesheet" href="app.css">
     <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
 </head>
 <body>
     <body ontouchstart>
         <div class="container" id="container">
-            <div class="hd">
-                <h1 class="page_title" id='page_title'>每学期绩点</h1>
-                <p class="page_desc" id='page_desc'>来源于URP全部及格成绩查询</p>
+            <div class="weui_cells" id="clist">
+                
+                
             </div>
-            <div class="weui_cells" style="background:white" id="clist">
-                
-                
+            <div class="hd">
+                <p class="page_desc" id='page_desc'>来源于URP全部及格成绩查询</p>
             </div>
         </div>
         <div id="loadingToast" class="weui_loading_toast" style="display:none;">
@@ -43,18 +43,18 @@
         </div>
 <script>
 $(document).ready(function(){
-    
-    if(/scorenow/.test(window.location.href))var type='scorenow';
-        if(/scoreall/.test(window.location.href))var type='scoreall';
-        if(/scoreeach/.test(window.location.href))var type='scoreeach';
+    var type;
+    if(/scorenow/.test(window.location.href)){type='scorenow';document.title="ERP-本学期绩点"}
+    if(/scoreall/.test(window.location.href)){type='scoreall';document.title="ERP-所有学期绩点"}
+    if(/scoreeach/.test(window.location.href)){type='scoreeach';document.title="ERP-每学期绩点"}
         switch (type) {
             case 'scorenow':
                 $('#page_title').text('本学期绩点');
                 $('#page_desc').text('来源于URP本学期成绩查询');
-                $.post("", {path:type},function(data,status){ 
+                $.post("index.php", {path:type},function(data,status){ 
                     $('#loadingToast').hide();
                     var obj= eval('(' + data + ')');
-                    var html='<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary"><p>GPA：'+Math.round(obj.gpa*100)/100+'&nbsp;&nbsp;&nbsp已修数量：'+obj.sum+'&nbsp;&nbsp;&nbsp已修学分：'+obj.down+'</p></div></div>';
+                    var html='<div class="weui_cell shou_light"><div class="weui_cell_bd weui_cell_primary"><p>GPA：'+Math.round(obj.gpa*100)/100+'&nbsp;&nbsp;&nbsp已修数量：'+obj.sum+'&nbsp;&nbsp;&nbsp已修学分：'+obj.down+'</p></div></div>';
                     for(var i=0;i<obj.clist.length;i++){
                             html+='<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary"><p>'+obj.clist[i].cname+'</p></div><div class="weui_cell_ft">'+obj.clist[i].per+'&nbsp;&nbsp;&nbsp;'+obj.clist[i].score+'</div></div>';
                     }
@@ -64,10 +64,10 @@ $(document).ready(function(){
             case 'scoreall':
                 $('#page_title').text('所有科目绩点');
                 $('#page_desc').text('来源于URP课程属性成绩查询');
-                $.post("", {path:type},function(data,status){ 
+                $.post("index.php", {path:type},function(data,status){ 
                     $('#loadingToast').hide();
                     var obj= eval('(' + data + ')');
-                    var html='<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary"><p>GPA：'+Math.round(obj.gpa*100)/100+'&nbsp;&nbsp;&nbsp已修数量：'+obj.sum+'&nbsp;&nbsp;&nbsp已修学分：'+obj.down+'</p></div></div>';
+                    var html='<div class="weui_cell shou_light"><div class="weui_cell_bd weui_cell_primary"><p>GPA：'+Math.round(obj.gpa*100)/100+'&nbsp;&nbsp;&nbsp已修数量：'+obj.sum+'&nbsp;&nbsp;&nbsp已修学分：'+obj.down+'</p></div></div>';
                     for(var i=0;i<obj.clist.length;i++){
                             html+='<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary"><p>'+obj.clist[i].cname+'</p></div><div class="weui_cell_ft">'+obj.clist[i].per+'&nbsp;&nbsp;&nbsp;'+obj.clist[i].score+'</div></div>';
                     }
@@ -77,7 +77,7 @@ $(document).ready(function(){
             case 'scoreeach':
                 $('#page_title').text('每学期科目绩点');
                 $('#page_desc').text('来源于URP全部及格成绩查询');
-                $.post("", {path:type},function(data,status){ 
+                $.post("index.php", {path:type},function(data,status){ 
                     $('#loadingToast').hide();
                     var obj_list= eval('(' + data + ')');
                     var html='';
@@ -85,7 +85,7 @@ $(document).ready(function(){
                         for(var i=0;i<obj_list[k].clist.length;i++){
                             html+='<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary"><p>'+obj_list[k].clist[i].cname+'</p></div><div class="weui_cell_ft">'+obj_list[k].clist[i].per+'&nbsp;&nbsp;&nbsp;'+obj_list[k].clist[i].score+'</div></div>';
                         }
-                        html+='<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary"><p></p></div><div class="weui_cell_ft">已修数量：'+obj_list[k].sum+'&nbsp;&nbsp;&nbsp已修学分：'+obj_list[k].down+'&nbsp;&nbsp;&nbspGPA：'+obj_list[k].gpa+'</div></div>';
+                        html+='<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary"><p></p></div><div class="weui_cell_ft shou_light">已修数量：'+obj_list[k].sum+'&nbsp;&nbsp;&nbsp已修学分：'+obj_list[k].down+'&nbsp;&nbsp;&nbspGPA：'+obj_list[k].gpa+'</div></div>';
                     }
                     
                     $('#clist').html(html);

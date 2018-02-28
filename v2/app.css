@@ -196,6 +196,10 @@ section {
 }
 .bottom_bar section{
     width: 20vw;
+    text-shadow: none !important;
+}
+.bottom_bar section p{
+    opacity: 0.5;
 }
 .card_box i{width: 16vw;background-size: cover;display: block;float: left;height: 16vw;}
 #bkg_bird{
@@ -220,3 +224,9 @@ section {
     background: linear-gradient(to bottom, rgb(57,58,63), rgba(255,0,0,0)); 
 }
 .clear{width: 100vw;height: 2vw}
+
+/* wui rewrite */
+.container>div{background-color:rgba(0,0,0,0)}
+.weui_cell{color:#e4e4e4}
+.weui_cell:before,.weui_cells:after, .weui_cells:before{opacity: 0.2}
+.shou_light{color:#1db1ff}
