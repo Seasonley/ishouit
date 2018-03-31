@@ -229,4 +229,4 @@ section {
 .container>div{background-color:rgba(0,0,0,0)}
 .weui_cell{color:#e4e4e4}
 .weui_cell:before,.weui_cells:after, .weui_cells:before{opacity: 0.2}
-.shou_light{color:#1db1ff}
+.shou_light,.weui_media_title>a:visited,.weui_media_title>a:link,a.weui_panel_ft:visited,a.weui_panel_ft:link{color:#1db1ff}

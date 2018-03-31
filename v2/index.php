@@ -22,7 +22,7 @@ switch ($_POST['path']) {
 			break;
 	case 'contact':
 			if(preg_match("#[\S]{1,30}#",$_POST['word'])){
-				include_once('contact.php');
+				include_once('../old/contact.php');
 				for($i=0;$i<1457;$i++){
 					if (preg_match('#'.$_POST['word'].'#',$t[$i],$m)){
 						$con[]=$t[$i];
@@ -33,7 +33,7 @@ switch ($_POST['path']) {
 			break;
 	case 'lib':
 			if(preg_match("#[\S]{1,30}#",$_POST['word'])){
-				include_once('lib.php');
+				include_once('../old/lib.php');
 				$con=opac3('y@'.$_POST['word']);
 			}
 			echo json_encode($con);exit;

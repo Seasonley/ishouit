@@ -14,19 +14,19 @@
 <body ontouchstart>
     <div class="container" id="container">
         <div class="hd">
-            <h1 class="page_title">教工通讯录</h1>
-            <p class="page_desc" id='page_desc'>可检索姓名，电话，部门学院，邮箱，信息来自数字校园</p>
+            <h1 class="page_title">馆藏图书检索</h1>
+            <p class="page_desc" id='page_desc'>实测检索时间约6秒，由图书馆官网速度决定</p>
         </div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" id="word" placeholder="请输入教工信息"/>
+                    <input class="weui_input" type="text" id="word" placeholder="请输入书名"/>
                 </div>
                 <a class="weui_btn weui_btn_primary" href="javascript:" id="search">搜索</a>
             </div>
         </div>
 
-        <div class="weui_panel weui_panel_access" id="clist" style="margin-top:0">
+        <div class="weui_panel weui_panel_access"  id="clist" style="margin-top:0">
             
         </div>
         <div id="loadingToast" class="weui_loading_toast" style="display:none;">
@@ -50,25 +50,32 @@
             </div>
         </div>
 <script>
+
     $('#search').click(function(){
         $('#loadingToast').show();
         var w=$('#word').val();
-        $.post("index.php", {
-            path:"contact", 
-            word:w
+        $.post('index.php', {
+            "path":'lib',
+            "word":w
         }, 
             function(data,status){ 
             $('#loadingToast').hide();
             var clist= eval('(' + data + ')');
-            var html='<div class="weui_panel_hd">'+w+'"有关结果'+clist.length+'个</div><div class="weui_panel_bd">';
-            for(var i=0;i<clist.length;i++){
-                var tmp=clist[i].split('\t');
-                for(var j=0;j<6;j++){
-                    if(!tmp[j])tmp[j]='';
-                }
-                html+='<div class="weui_media_box weui_media_text"><h4 class="weui_media_title">'+tmp[0]+'\t<a href="tel:'+tmp[2]+'">'+tmp[2]+'</a></h4><p class="weui_media_desc">'+tmp[1]+'\t'+tmp[3]+'\t'+tmp[4]+tmp[5]+'</p></div>';
+            if(clist.bklist==null){
+            $('#clist').html('<div class="weui_panel_hd">'+w+'"有关结果</div><div class="weui_panel_bd"><a href="'+clist.more_url+'" class="weui_panel_ft">查看更多</a></div>');
+            return;
             }
-            $('#clist').html(html+'</div>');
+            var html='<div class="weui_panel_hd">'+w+'"有关结果</div><div class="weui_panel_bd">';
+            for(var i=0;i<clist.bklist.length;i++){
+                if(!clist.bklist[i].url)clist.bklist[i].url='';
+                if(!clist.bklist[i].name)clist.bklist[i].name='';
+                if(!clist.bklist[i].ssh)clist.bklist[i].ssh='';
+                if(!clist.bklist[i].auth)clist.bklist[i].auth='';
+                if(!clist.bklist[i].location)clist.bklist[i].location='';
+                html+='<div class="weui_media_box weui_media_text" onclick="window.open(\''+clist.bklist[i].url+'\')"><h4 class="weui_media_title">'+clist.bklist[i].name+'\t'+clist.bklist[i].ssh+'</a></h4><p class="weui_media_desc">'+clist.bklist[i].auth+'\t'+clist.bklist[i].location+'</p></div>';
+            }
+            $('#clist').html(html+'<a href="'+clist.more_url+'" class="weui_panel_ft">查看更多</a></div>');
+
         });
       });
 </script>
