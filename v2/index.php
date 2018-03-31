@@ -2,22 +2,24 @@
 error_reporting(7);
 session_start();
 function view($filename){return ltrim(rtrim(preg_replace(array("/> *([^ ]*) *</","/<!--[^!]*-->/","'/\*[^*]*\*/'","/\r\n/","/\n/","/\t/",'/>[ ]+</'),array(">\\1<",'','','','','','><'),file_get_contents("temp/$filename.html"))));}
-// if($_GET['s']!='login'&&$_SESSION['ishou_username']==null){
-// 	header("Location: ?s=login");exit;
-// }
+
 
 switch ($_POST['path']) {
+	case 'islogin':
+		if($_SESSION['ishou_username']){
+			echo('success');exit;
+		}else{
+			echo('error');exit;
+		}
 	case 'login':
 			if(preg_match("#[\d]{7}#",$_POST['username'])&&preg_match("#[\S]{0,30}#",$_POST['pwdishou'])&&preg_match("#[\S]{1,30}#",$_POST['pwdurp'])){
 				$_SESSION['ishou_username']=$_POST['username'];
 				$_SESSION['ishou_pwdishou']=$_POST['pwdishou'];
 				$_SESSION['ishou_pwdurp']=$_POST['pwdurp'];
-				header("Location: ?s=home"); 
+				echo('success');exit;
 			}
 			else{
-				echo view('login');
-				echo "<script>document.getElementById('dialog1').style.display='block'</script>";
-
+				echo('error');exit;
 			}
 			break;
 	case 'contact':
@@ -39,22 +41,22 @@ switch ($_POST['path']) {
 			echo json_encode($con);exit;
 			break;
 	case 'scoreall':
-			echo file_get_contents("json/scoreall.json");exit;
-			// include_once('scoreall.php');
-			// $con=wrp_last("wrp@".$_SESSION['ishou_username']."@".$_SESSION['ishou_pwdurp']);
-			// echo json_encode($con);exit;
+			// echo file_get_contents("json/scoreall.json");exit;
+			include_once('../old/scoreall.php');
+			$con=wrp_last("wrp@".$_SESSION['ishou_username']."@".$_SESSION['ishou_pwdurp']);
+			echo json_encode($con);exit;
 			break;
 	case 'scorenow':
-			echo file_get_contents("json/scorenow.json");exit;
-			// include_once('scorenow.php');
-			// $con=wrp_last("wrp@".$_SESSION['ishou_username']."@".$_SESSION['ishou_pwdurp']);
-			// echo json_encode($con);exit;
+			// echo file_get_contents("json/scorenow.json");exit;
+			include_once('../old/scorenow.php');
+			$con=wrp_last("wrp@".$_SESSION['ishou_username']."@".$_SESSION['ishou_pwdurp']);
+			echo json_encode($con);exit;
 			break;
 	case 'scoreeach':
-			echo file_get_contents("json/scoreeach.json");exit;
-			// include_once('scoreeach.php');
-			// $con=wrp_last("wrp@".$_SESSION['ishou_username']."@".$_SESSION['ishou_pwdurp']);
-			// echo json_encode($con);exit;
+			// echo file_get_contents("json/scoreeach.json");exit;
+			include_once('../old/scoreeach.php');
+			$con=wrp_last("wrp@".$_SESSION['ishou_username']."@".$_SESSION['ishou_pwdurp']);
+			echo json_encode($con);exit;
 			break;
 	
 	default:

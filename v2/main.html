@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +11,16 @@
     <script src="touchslider.js"></script>
     <script type="text/javascript" src="jquery.charfirst.pinyin.js"></script>
 </head>
+
 <body id="mainbody">
     <ul class="menu">
-            <li id="m0" class="active" onclick="t3.slide(0)">工具</li>
-            <li id="m1" onclick="t3.slide(1)">院系</li>
-            <li id="m2" onclick="t3.slide(2)">社团</li>
-            <li id="m3" onclick="t3.slide(3)">资讯</li>
-            <li id="m4" onclick="t3.slide(4)">我</li>
+        <li id="m0" class="active" onclick="t3.slide(0)">工具</li>
+        <li id="m1" onclick="t3.slide(1)">院系</li>
+        <li id="m2" onclick="t3.slide(2)">社团</li>
+        <li id="m3" onclick="t3.slide(3)">资讯</li>
+        <li id="m4" onclick="t3.slide(4)">我</li>
     </ul>
-    <div class='swipe' >
+    <div class='swipe'>
         <ul id='sliderbody'>
             <li class="containers">
                 <div id="banner">
@@ -58,7 +60,7 @@
                         <i class="fas fa-pencil-alt"></i>
                         <p>题库</p>
                     </section>
-                    <section onclick="url('')">
+                    <section onclick="alert('未开放...')">
                         <i class="fas fa-id-card"></i>
                         <p>一卡通</p>
                     </section>
@@ -74,25 +76,70 @@
             </li>
             <li class="xy">
                 <div class="clear"></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r4_c3.jpg)"></i><span>水产与生命</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r4_c5.jpg)"></i><span>海洋生态与环境</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r1_c3.jpg)"></i><span>海洋文化与法律</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r2_c2.jpg)"></i><span>海洋科学</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r4_c4.jpg)"></i><span>食品</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r4_c2.jpg)"></i><span>经济管理</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r3_c3.jpg)"></i><span>工程</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r2_c4.jpg)"></i><span>信息</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r2_c1.jpg)"></i><span>外国语</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r4_c1.jpg)"></i><span>爱恩</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r2_c5.jpg)"></i><span>体育部</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r1_c2.jpg)"></i><span>马克思主义</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r3_c5.jpg)"></i><span>国际文化交流</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r2_c3.jpg)"></i><span>继续教育</span></div>
-                <div class="card_box" onclick="url('')"><i style="background-image:url(img/ocean_icon_r1_c5.jpg)"></i><span>高等职业技术</span></div>
-                
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r4_c3.jpg)"></i>
+                    <span>水产与生命</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r4_c5.jpg)"></i>
+                    <span>海洋生态与环境</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r1_c3.jpg)"></i>
+                    <span>海洋文化与法律</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r2_c2.jpg)"></i>
+                    <span>海洋科学</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r4_c4.jpg)"></i>
+                    <span>食品</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r4_c2.jpg)"></i>
+                    <span>经济管理</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r3_c3.jpg)"></i>
+                    <span>工程</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r2_c4.jpg)"></i>
+                    <span>信息</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r2_c1.jpg)"></i>
+                    <span>外国语</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r4_c1.jpg)"></i>
+                    <span>爱恩</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r2_c5.jpg)"></i>
+                    <span>体育部</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r1_c2.jpg)"></i>
+                    <span>马克思主义</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r3_c5.jpg)"></i>
+                    <span>国际文化交流</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r2_c3.jpg)"></i>
+                    <span>继续教育</span>
+                </div>
+                <div class="card_box" onclick="url('')">
+                    <i style="background-image:url(img/ocean_icon_r1_c5.jpg)"></i>
+                    <span>高等职业技术</span>
+                </div>
+
             </li>
             <li id="contact">
-                <div id="letter" ></div>
+                <div id="letter"></div>
                 <div class="sort_box">
                     <div class="sort_list">
                         <div class="num_logo">
@@ -102,105 +149,113 @@
                 </div>
                 <div class="initials">
                     <ul>
-                        <li><img src="img/068.png"></li>
+                        <li>
+                            <img src="img/068.png">
+                        </li>
                     </ul>
                 </div>
             </li>
-            <li>4</li>
-            <li>5</li>
+            <li>木有...</li>
+            <li>
+                <div class="ecard">
+                    <div class="cash">99999.99</div>
+                    <div class="desc"><br/>确认过眼神，一卡通丢了魂</div>
+                </div>
+            </li>
         </ul>
-      </div>
-<script>
-    // var banner_slider=new TouchSlider('banner',{duration:1000, direction:0, interval:3000, fullsize:true})
-    var t3=new TouchSlider('sliderbody',{duration:600, direction:0, interval:1000, fullsize:true, autoplay:false});
-    $(document).ready(function(){
-        url=function(link){window.location.href=link}
-        changetab=function(){
-            $(".menu li").removeClass("active")
-            $("#m"+t3.current).addClass("active")
-            if(t3.current==2){
-                $('.initials').show()
-            }else{
-                $('.initials').hide()
+    </div>
+    <script>
+        // var banner_slider=new TouchSlider('banner',{duration:1000, direction:0, interval:3000, fullsize:true})
+        var t3 = new TouchSlider('sliderbody', { duration: 600, direction: 0, interval: 1000, fullsize: true, autoplay: false });
+        $(document).ready(function () {
+            url = function (link) { if(link!='')window.location.href = link }
+            changetab = function () {
+                $(".menu li").removeClass("active")
+                $("#m" + t3.current).addClass("active")
+                if (t3.current == 2) {
+                    $('.initials').show()
+                } else {
+                    $('.initials').hide()
+                }
             }
-        }
-        window.setInterval(changetab,500);
-        load_contact();
-    });
-        load_contact=function(){$.getJSON("st.json",function(data){
-            var $jsontip = $(".sort_box");
-            var strHtml = "";
-            $jsontip.empty();
-            for (i=0;i<data.length;i++){
-                var $el   = $('<div class="sort_list"><div class="num_logo"></div><div class="num_name">'+data[i].name+'</div></div>');
-                $jsontip.append($el);
-            }
-            $(function(){
-                var Initials=$('.initials');
-                var LetterBox=$('#letter');
-                Initials.find('ul').append('<li>'+'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('').join('</li><li>')+'</li>');
-                initials();
-                $(".initials ul li").click(function(){
-                    var _this=$(this);
-                    var LetterHtml=_this.html();
-                    LetterBox.html(LetterHtml).fadeIn();
-                    Initials.css('background','rgba(145,145,145,0.6)');
-                    setTimeout(function(){
-                        Initials.css('background','rgba(145,145,145,0)');
-                        LetterBox.fadeOut();
-                    },1000);
-                    var _index = _this.index()
-                    if(_index==0){
-                        $('#contact').animate({scrollTop: '0px'}, 300);//点击第一个滚到顶部
-                    }else if(_index==27){
-                        var DefaultTop=$('#default').position().top;
-                        $('#contact').animate({scrollTop: DefaultTop+'px'}, 300);//点击最后一个滚到#号
-                    }else{
-                        var letter = _this.text();
-                        if($('#'+letter).length>0){
-                            var LetterTop = $('#'+letter).position().top;
-                            $('#contact').animate({scrollTop: LetterTop+'px'}, 300);
+            window.setInterval(changetab, 500);
+            load_contact();
+        });
+        load_contact = function () {
+            $.getJSON("st.json", function (data) {
+                var $jsontip = $(".sort_box");
+                var strHtml = "";
+                $jsontip.empty();
+                for (i = 0; i < data.length; i++) {
+                    var $el = $('<div class="sort_list"><div class="num_logo"></div><div class="num_name">' + data[i].name + '</div></div>');
+                    $jsontip.append($el);
+                }
+                $(function () {
+                    var Initials = $('.initials');
+                    var LetterBox = $('#letter');
+                    Initials.find('ul').append('<li>' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('').join('</li><li>') + '</li>');
+                    initials();
+                    $(".initials ul li").click(function () {
+                        var _this = $(this);
+                        var LetterHtml = _this.html();
+                        LetterBox.html(LetterHtml).fadeIn();
+                        Initials.css('background', 'rgba(145,145,145,0.6)');
+                        setTimeout(function () {
+                            Initials.css('background', 'rgba(145,145,145,0)');
+                            LetterBox.fadeOut();
+                        }, 1000);
+                        var _index = _this.index()
+                        if (_index == 0) {
+                            $('#contact').animate({ scrollTop: '0px' }, 300);//点击第一个滚到顶部
+                        } else if (_index == 27) {
+                            var DefaultTop = $('#default').position().top;
+                            $('#contact').animate({ scrollTop: DefaultTop + 'px' }, 300);//点击最后一个滚到#号
+                        } else {
+                            var letter = _this.text();
+                            if ($('#' + letter).length > 0) {
+                                var LetterTop = $('#' + letter).position().top;
+                                $('#contact').animate({ scrollTop: LetterTop + 'px' }, 300);
+                            }
                         }
-                    }
+                    })
+                    var windowHeight = $(window).height();
+                    var InitHeight = windowHeight;
+                    Initials.height(InitHeight);
+                    var LiHeight = InitHeight / 28;
+                    Initials.find('li').height(LiHeight);
                 })
-                var windowHeight=$(window).height();
-                var InitHeight=windowHeight;
-                Initials.height(InitHeight);
-                var LiHeight=InitHeight/28;
-                Initials.find('li').height(LiHeight);
+                function initials() {//公众号排序
+                    var SortList = $(".sort_list");
+                    var SortBox = $(".sort_box");
+                    SortList.sort(asc_sort).appendTo('.sort_box');//按首字母排序
+                    function asc_sort(a, b) {
+                        return makePy($(b).find('.num_name').text().charAt(0))[0].toUpperCase() < makePy($(a).find('.num_name').text().charAt(0))[0].toUpperCase() ? 1 : -1;
+                    }
+                    var initials = [];
+                    var num = 0;
+                    SortList.each(function (i) {
+                        var initial = makePy($(this).find('.num_name').text().charAt(0))[0].toUpperCase();
+                        if (initial >= 'A' && initial <= 'Z') {
+                            if (initials.indexOf(initial) === -1)
+                                initials.push(initial);
+                        } else {
+                            num++;
+                        }
+
+                    });
+                    $.each(initials, function (index, value) {//添加首字母标签
+                        SortBox.append('<div class="sort_letter" id="' + value + '">' + value + '</div>');
+                    });
+                    if (num != 0) { SortBox.append('<div class="sort_letter" id="default">#</div>'); }
+                    for (var i = 0; i < SortList.length; i++) {//插入到对应的首字母后面
+                        var letter = makePy(SortList.eq(i).find('.num_name').text().charAt(0))[0].toUpperCase();
+                        if ($.inArray(letter, ' ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''))) {
+                            $('#' + letter).after(SortList.eq(i));
+                        } else {
+                            $('#default').after(SortList.eq(i));
+                        }
+                    };
+                }
             })
-            function initials() {//公众号排序
-            var SortList=$(".sort_list");
-            var SortBox=$(".sort_box");
-            SortList.sort(asc_sort).appendTo('.sort_box');//按首字母排序
-            function asc_sort(a, b) {
-                return makePy($(b).find('.num_name').text().charAt(0))[0].toUpperCase() < makePy($(a).find('.num_name').text().charAt(0))[0].toUpperCase() ? 1 : -1;
-            }
-            var initials = [];
-            var num=0;
-            SortList.each(function(i) {
-                var initial = makePy($(this).find('.num_name').text().charAt(0))[0].toUpperCase();
-                if(initial>='A'&&initial<='Z'){
-                    if (initials.indexOf(initial) === -1)
-                        initials.push(initial);
-                }else{
-                    num++;
-                }
-                
-            });
-            $.each(initials, function(index, value) {//添加首字母标签
-                SortBox.append('<div class="sort_letter" id="'+ value +'">' + value + '</div>');
-            });
-            if(num!=0){SortBox.append('<div class="sort_letter" id="default">#</div>');}
-            for (var i =0;i<SortList.length;i++) {//插入到对应的首字母后面
-                var letter=makePy(SortList.eq(i).find('.num_name').text().charAt(0))[0].toUpperCase();
-                if($.inArray(letter,' ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''))){
-                    $('#'+letter).after(SortList.eq(i));
-                }else{
-                    $('#default').after(SortList.eq(i));
-                }
-            };
-            }
-        })
-    }
+        }
     </script>
